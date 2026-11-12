@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,10 +31,12 @@
 
     <p>
         <strong>Keterangan:</strong>
-        {{ $surat->keterangan }}
+        {{ $surat->keterangan ?? 'Tidak ada keterangan' }}
     </p>
 
-    <a href="{{ route('surat-keluar.index') }}">Kembali</a>
+    <a href="{{ route('surat-keluar.index') }}">
+        Kembali
+    </a>
 
 </body>
 </html>
