@@ -7,6 +7,14 @@
 </head>
 <body>
 
+@auth
+    <span>Masuk sebagai: {{ auth()->user()->name }}</span>
+    <form method="POST" action="{{ route('logout') }}" style="display:inline">
+        @csrf
+        <button type="submit">Keluar</button>
+    </form>
+@endauth
+
     <h2>Sistem Informasi Surat</h2>
 
     <nav>

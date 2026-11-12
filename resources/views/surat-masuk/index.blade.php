@@ -30,9 +30,11 @@
 
 <h1>Daftar Surat Masuk</h1>
 
+@can('manage-letters')
 <a href="{{ route('surat-masuk.create') }}">
     + Tambah Surat Masuk
 </a>
+@endcan
 
 <br><br>
 
@@ -76,7 +78,7 @@
                     <a href="{{ route('surat-masuk.show', $surat->id) }}">
                         Detail
                     </a>
-                    |
+                    |@can('manage-letters')
                     <a href="{{ route('surat-masuk.edit', $surat->id) }}">
                         Edit
                     </a>
@@ -94,6 +96,7 @@
                         </button>
 
                     </form>
+                    @endcan
                 </td>
             </tr>
 

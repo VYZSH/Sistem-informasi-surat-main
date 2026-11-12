@@ -55,5 +55,6 @@
     </p>
 
     <button type="submit">Simpan</button>
+    <a href="{{ route('surat-masuk.index') }}">Kembali</a>
 </form>
 @endsection
