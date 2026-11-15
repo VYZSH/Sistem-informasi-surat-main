@@ -1,35 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Sistem Informasi Surat')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title', 'SIM-Surat')</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-
-@auth
-    <span>Masuk sebagai: {{ auth()->user()->name }}</span>
-    <form method="POST" action="{{ route('logout') }}" style="display:inline">
-        @csrf
-        <button type="submit">Keluar</button>
-    </form>
-@endauth
-
-    <h2>Sistem Informasi Surat</h2>
-
-    <nav>
-        <a href="{{ route('dashboard') }}">Dashboard</a> |
-        <a href="{{ route('surat-masuk.index') }}">Surat Masuk</a> |
-        <a href="{{ route('surat-keluar.index') }}">Surat Keluar</a>
-    </nav>
-
-    <hr>
-
-    @yield('content')
-
-    <hr>
-
-    <p>Sistem Informasi Surat</p>
-
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">✉ SIM-SURAT</div>
+        <nav>
+            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">▦ &nbsp; Dashboard</a>
+            <a class="nav-link {{ request()->routeIs('surat-masuk.*') ? 'active' : '' }}" href="{{ route('surat-masuk.index') }}">↙ &nbsp; Surat Masuk</a>
+            <a class="nav-link {{ request()->routeIs('surat-keluar.*') ? 'active' : '' }}" href="{{ route('surat-keluar.index') }}">↗ &nbsp; Surat Keluar</a>
+        </nav>
+    </aside>
+    <main class="main-area">
+        <header class="topbar">
+            <span>{{ auth()->user()->name ?? 'Pengguna' }}</span>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="btn btn-light" type="submit">Keluar</button>
+            </form>
+        </header>
+        <section class="page">
+            @yield('content')
+        </section>
+    </main>
+</div>
 </body>
 </html>

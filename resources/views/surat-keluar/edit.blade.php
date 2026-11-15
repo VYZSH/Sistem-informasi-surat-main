@@ -1,47 +1,37 @@
-
 @extends('layouts.app')
-
 @section('title', 'Edit Surat Keluar')
-
 @section('content')
-
-<h1>Edit Surat Keluar</h1>
-
-<form action="{{ route('surat-keluar.update', $surat->id) }}"
-      method="POST">
-
+<h1 class="page-title">Edit Surat Keluar</h1>
+<p class="muted" style="margin-bottom:22px">Lengkapi informasi surat pada formulir berikut.</p>
+<div class="card" style="max-width:720px">
+<form action="{{ route('surat-keluar.update', $surat->id) }}" method="POST">
     @csrf
     @method('PUT')
-
-    <p>Nomor Surat</p>
-    <input type="text" name="no_surat"
-           value="{{ old('no_surat', $surat->no_surat) }}"
-           required>
-
-    <p>Tanggal</p>
-    <input type="date" name="tanggal"
-           value="{{ old('tanggal', $surat->tanggal) }}"
-           required>
-
-    <p>Penerima</p>
-    <input type="text" name="penerima"
-           value="{{ old('tujuan', $surat->penerima) }}"
-           required>
-
-    <p>Perihal</p>
-    <input type="text" name="perihal"
-           value="{{ old('perihal', $surat->perihal) }}"
-           required>
-
-    <p>Keterangan</p>
-    <textarea name="keterangan">{{ old('keterangan', $surat->keterangan) }}</textarea>
-
-    <br><br>
-
-    <button type="submit">Simpan Perubahan</button>
-
-    <a href="{{ route('surat-keluar.index') }}">Kembali</a>
-
-</form>
-
+    <div class="field">
+        <label for="no_surat">Nomor Surat</label>
+        <input id="no_surat" type="text" name="no_surat" value="{{ old('no_surat', $surat->no_surat ?? '') }}" required>
+        @error('no_surat') <span class="error">{{ $message }}</span> @enderror
+    </div>
+    <div class="field">
+        <label for="tanggal">Tanggal</label>
+        <input id="tanggal" type="date" name="tanggal" value="{{ old('tanggal', $surat->tanggal ?? '') }}" required>
+        @error('tanggal') <span class="error">{{ $message }}</span> @enderror
+    </div>
+    <div class="field">
+        <label for="penerima">Penerima</label>
+        <input id="penerima" type="text" name="penerima" value="{{ old('penerima', $surat->penerima ?? '') }}" required>
+        @error('penerima') <span class="error">{{ $message }}</span> @enderror
+    </div>
+    <div class="field">
+        <label for="perihal">Perihal</label>
+        <input id="perihal" type="text" name="perihal" value="{{ old('perihal', $surat->perihal ?? '') }}" required>
+        @error('perihal') <span class="error">{{ $message }}</span> @enderror
+    </div>
+    <div class="field">
+        <label for="keterangan">Keterangan</label>
+        <textarea id="keterangan" name="keterangan">{{ old('keterangan', $surat->keterangan ?? '') }}</textarea>
+        @error('keterangan') <span class="error">{{ $message }}</span> @enderror
+    </div>
+    <div style="display:flex;gap:10px"><button class="btn btn-primary" type="submit">Simpan Perubahan</button><a class="btn btn-light" href="{{ route('surat-keluar.index') }}">Kembali</a></div>
+</form></div>
 @endsection
