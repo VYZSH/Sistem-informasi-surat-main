@@ -54,10 +54,10 @@ class SuratKeluarController extends Controller
         $surat = OutgoingLetter::findOrFail($id);
 
         $validate = $request->validate([
-            'no_surat'   => 'required|string|max:225',
+            'no_surat'   => 'required|string|max:255',
             'tanggal'    => 'required|date',
-            'penerima'   => 'required|string|max:225',
-            'perihal'    => 'required|string|max:225',
+            'penerima'   => 'required|string|max:255',
+            'perihal'    => 'required|string|max:255',
             'keterangan' => 'nullable|string',
         ]);
 

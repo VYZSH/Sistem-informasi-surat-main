@@ -14,8 +14,8 @@
     @method('PUT')
 
     <p>Nomor Surat</p>
-    <input type="text" name="nomor_surat"
-           value="{{ old('nomor_surat', $surat->nomor_surat) }}"
+    <input type="text" name="no_surat"
+           value="{{ old('no_surat', $surat->no_surat) }}"
            required>
 
     <p>Tanggal</p>
@@ -24,8 +24,8 @@
            required>
 
     <p>Penerima</p>
-    <input type="text" name="tujuan"
-           value="{{ old('tujuan', $surat->tujuan) }}"
+    <input type="text" name="penerima"
+           value="{{ old('tujuan', $surat->penerima) }}"
            required>
 
     <p>Perihal</p>

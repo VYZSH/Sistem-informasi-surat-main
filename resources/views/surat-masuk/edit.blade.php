@@ -11,7 +11,7 @@
     @method('PUT')
     <p>
         Nomor Surat:<br>
-        <input type="text" name="nomor_surat" value="{{ old('nomor_surat', $surat->nomor_surat) }}">
+        <input type="text" name="no_surat" value="{{ old('no_surat', $surat->no_surat) }}">
 
         @error('nomor_surat')
             <span style="color:red">{{ $message }}</span>

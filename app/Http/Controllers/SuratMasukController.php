@@ -24,15 +24,15 @@ class SuratMasukController extends Controller
     // Menyimpan data surat masuk
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'no_surat' => 'required|string|max:225',
+        $validated = $request->validate([
+            'no_surat' => 'required|string|max:255',
             'tanggal'     => 'required|date',
-            'pengirim'    => 'required|string|max:225',
-            'perihal'     => 'required|string|max:225',
+            'pengirim'    => 'required|string|max:255',
+            'perihal'     => 'required|string|max:255',
             'keterangan'  => 'nullable|string',
         ]);
 
-        IncomingLetter::create($validate);
+        IncomingLetter::create($validated);
 
         return redirect()->route('surat-masuk.index')
             ->with('success', 'Surat berhasil ditambahkan.');
@@ -60,10 +60,10 @@ class SuratMasukController extends Controller
         $surat = IncomingLetter::findOrFail($id);
 
         $validate = $request->validate([
-            'nomor_surat' => 'required|string|max:225',
+            'no_surat' => 'required|string|max:255',
             'tanggal'     => 'required|date',
-            'pengirim'    => 'required|string|max:225',
-            'perihal'     => 'required|string|max:225',
+            'pengirim'    => 'required|string|max:255',
+            'perihal'     => 'required|string|max:255',
             'keterangan'  => 'nullable|string',
         ]);
 

@@ -11,15 +11,15 @@
     @csrf
 
     <p>Nomor Surat</p>
-    <input type="text" name="nomor_surat"
-           value="{{ old('nomor_surat') }}" required>
+    <input type="text" name="no_surat"
+           value="{{ old('no_surat') }}" required>
 
     <p>Tanggal</p>
     <input type="date" name="tanggal"
            value="{{ old('tanggal') }}" required>
 
     <p>Penerima</p>
-    <input type="text" name="tujuan"
+    <input type="text" name="penerima"
            value="{{ old('tujuan') }}" required>
 
     <p>Perihal</p>
